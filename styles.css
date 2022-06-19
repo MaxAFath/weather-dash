@@ -1,0 +1,10 @@
+
+header{
+background-color: whitesmoke;
+}
+
+.bar{
+    height: 5px;
+    width: auto;
+    background-color: gold;
+}
