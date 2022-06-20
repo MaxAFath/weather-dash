@@ -8,3 +8,23 @@ background-color: whitesmoke;
     width: auto;
     background-color: gold;
 }
+
+.card{
+    border: 5%;
+    border-style: solid;
+    background-color: yellow;
+}
+
+body{
+    background-color: antiquewhite;
+}
+
+#weather{
+    border: 5rem;
+    border-style: solid;
+    background-color:gold;
+}
+#current{
+    object-fit: contain;
+}
+

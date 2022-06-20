@@ -33,6 +33,12 @@ var response = new Object();
 //function to get latitude and longitude of city by the inputs name, state, and/or country
 var getLatLon = function (city, state, country) {
     historySearch(city);
+    if (forcast.value === 1) {
+        for (let i = 0; i < 5; i++) {
+            forcast.removeChild(document.getElementById(i));
+        }
+        forcast.value = 0;
+    }
 
     if (state != 'false') {
         $.ajax({
@@ -69,7 +75,7 @@ var getLatLon = function (city, state, country) {
 
 function historySearch(city) {
     let liEl = document.createElement("li");
-    liEl.className = "btn";
+    liEl.className = "card row";
     liEl.innerHTML = city;
     historyCol.appendChild(liEl);
     let temp = document.getElementById("heroCity");
@@ -88,7 +94,8 @@ function getWeather(lati, longe) {
             document.getElementById("uv").innerHTML = "uvi " + data.current.uvi;
             for (let i = 0; i < 5; i++) {
                 var card = document.createElement("div");
-                card.className = "col";
+                card.className = "col card";
+                card.id = i;
                 /*card.innerHTML= (document.createElement("p").innerHTML= data.daily[i].temp.max);
                 card.innerHTML = (document.createElement("p").innerHTML = data.daily[i].wind_speed);
                 card.innerHTML = (document.createElement("p").innerHTML = data.daily[i].humidity);*/
@@ -101,7 +108,7 @@ function getWeather(lati, longe) {
                 card.append(derp);
                 card.append(wind);
                 card.append(humidity);
-
+                forcast.value = 1;
                 forcast.append(card);
             }
         }
